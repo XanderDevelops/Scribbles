@@ -91,7 +91,7 @@ body {
     background-color: transparent;
     border: none;
   }
-  
+
   .search-container input[type="text"] {
     display: flex;
     font-family: "Scribbles";
@@ -180,16 +180,31 @@ body {
     margin-bottom: 10px;
   }
 
-  .AnimationScreenContainer img{
+  .AnimationScreenContainer .imgGen {
     display: flex;
     justify-content: center;
-    align-content: center;
-    width: 150px;
-    height: 150px;
-    margin: auto;
+    align-items: center;
     margin-top: 50px;
   }
+
+  .AnimationScreenContainer .imgGen img {
+    width: 150px;
+    height: 150px;
+    background-image: url("Images/Website Elements/ScreenBox.png");
+    background-image: transparent;
+    margin: 10px; /* adjust this value to change the distance between images */
+    animation: rotateScribble 0.1s linear infinite alternate;
+  }
   
+  @keyframes rotateScribble {
+    from {
+      transform: rotate(5deg);
+    }
+    to {
+      transform: rotate(-5deg);
+    }
+  }
+
   .download-button {
     display: flex;
     justify-content: center;

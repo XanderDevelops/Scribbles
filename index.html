@@ -8,7 +8,7 @@
   <body>
     <header>
         <h1>Scribbles</h1>
-        <button id="ChangeSite" type="button">Bring your stories to live</button>
+        <button id="ChangeSite" type="button">Bring your stories to life</button>
         <nav>
           <ul>
             <li><a href="Fonts/Scribbles-Regular.zip" download>Download original font</a></li>
@@ -28,7 +28,10 @@
     <div class="AnimationScreenContainer" id= "AnimScrCont" style="display: none;">
         <button id="start-btn">Start Recording</button>
         <button id="stop-btn" disabled>Stop Recording</button>
-        <img id="img-displayed" src="" style="display: none;">
+        <div class="imgGen">
+            <img id="img-displayed" src="" style="display: none;">
+            <img id="img-displayed2" src="" style="display: none;">
+        </div>
     </div>
     
 
@@ -92,7 +95,7 @@
             </div>
         </div>
         <div class="StationaryObjectsContainer">
-            <sub-title>Stationary Objects<a href="Fonts/Scribbles-Regular.zip" download> Download all</a></sub-title>
+            <sub-title>Stationary Objects<a href="Images\Items\DownloadAll\StationaryObjects.zip" download> Download all</a></sub-title>
             <div class="button-container">
                 <div id="pencil" hidden>
                     <img src="Images\Items\StationaryObjects\ScribblesIcon-14.png">
@@ -178,19 +181,45 @@
 
             function ListenUser() {
                 // Get the search query from the input field
-                var query = document.getElementById("searchBar2").value.toLowerCase();
-                query = query.replaceAll( " ", "");
+                var query = document.getElementById("searchBar2").value.toLowerCase().replaceAll( " ", "");
+                var query1;
+                var query2;
 
                 // Loop through all the items to show or hide them based on the query
                 var items = document.querySelectorAll(".button-container > div");
+                items.forEach(e=> {
+                    if(query.includes(e.id)){
+                        if(query1){
+                            query2 = e.id
+                            console.log("query2");
+                        }
+                        else
+                        {
+                            query1 = e.id
+                            console.log("query1");
+                        }
+                    }
+                })
                 
                 //var itemId = items[i].getAttribute("id").toLowerCase();
-                const img = document.querySelector(`#${query} img`)
+                if(!query1 && !query2){return}
+                
+                console.log("pasós");
+                const img = document.querySelector(`#${query1} img`)
+                const img2 = document.querySelector(`#${query2} img`)
+                
                 if (img) {
                         document.getElementById("img-displayed").style.removeProperty("display");
                         document.getElementById("img-displayed").src = img.src
                     } else {
                         document.getElementById("img-displayed").style.display = "none";
+                    }
+
+                    if (img2) {
+                        document.getElementById("img-displayed2").style.removeProperty("display");
+                        document.getElementById("img-displayed2").src = img2.src
+                    } else {
+                        document.getElementById("img-displayed2").style.display = "none";
                     }
             }
             document.getElementById("searchBar2").addEventListener("input", ListenUser);
@@ -204,7 +233,7 @@
                     document.getElementById("AnimScrCont").style.display = "none"
                     document.getElementById("img-displayed").style.display = "none"
                     document.getElementById("searchBar2").value = ""
-                    document.getElementById("ChangeSite").textContent = "Bring your stories to live";
+                    document.getElementById("ChangeSite").textContent = "Bring your stories to life";
                 }else
                 {
                     document.getElementById("AnimScrCont").style.removeProperty("display");
@@ -224,15 +253,18 @@
             recognition.lang = 'en-US';
             recognition.continuous = true;
             recognition.interimResults = true;
+            
 
             const startBtn = document.getElementById('start-btn');
             const stopBtn = document.getElementById('stop-btn');
             const resultDiv = document.getElementById('searchBar2');
 
             startBtn.addEventListener('click', () => {
+            if (!recognition.isRecording) {
             recognition.start();
             startBtn.disabled = true;
             stopBtn.disabled = false;
+            }
             });
 
             stopBtn.addEventListener('click', () => {
