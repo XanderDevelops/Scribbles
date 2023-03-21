@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "openai": "^3.2.1",
+    "speechkitt": "^1.0.0",
+    "whisper-node": "^0.1.5"
+  },
+  "name": "scribbles",
+  "version": "1.0.0",
+  "main": "Scribbles.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

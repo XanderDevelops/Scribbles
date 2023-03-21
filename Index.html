@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" href="Images\Items\FastFood\ScribblesIcon-01.png">
+    <title>Scribbles</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header>
+        <h1>Scribbles</h1>
+        <button id="ChangeSite" type="button">Bring your stories to live</button>
+        <nav>
+          <ul>
+            <li><a href="Fonts/Scribbles-Regular.zip" download>Download original font</a></li>
+          </ul>
+        </nav>
+      </header>
+    
+    <!-- Search bar -->
+    <div class="search-container" id="searchBarContainer">
+        <input type="text" id="searchBar" placeholder="Search...">
+    </div>
+
+    <div class="search-container" id="searchBarContainer2" style="display: none;">
+        <input type="text" id="searchBar2" placeholder="Prompt...">
+    </div>
+    
+    <div class="AnimationScreenContainer" id= "AnimScrCont" style="display: none;">
+        <button id="start-btn">Start Recording</button>
+        <button id="stop-btn" disabled>Stop Recording</button>
+        <img id="img-displayed" src="" style="display: none;">
+    </div>
+    
+
+    <!-- Download links -->
+    <div class="AllItems" id="AllItems">
+        <div class="FastFoodContainer">
+            <sub-title>Fast Food<a href="Images\Items\DownloadAll\FastFood.zip" download> Download all</a></sub-title>
+            <div class="button-container">
+                <div id="pizza">
+                <img src="Images\Items\FastFood\ScribblesIcon-01.png">
+                <span class="download-button">Download</span>
+                </div>
+                <div id="hamburger" hidden>
+                    <img src="Images\Items\FastFood\ScribblesIcon-02.png">
+                <span class="download-button">Download</span>
+                </div>
+                <div id="fries" hidden>
+                    <img src="Images\Items\FastFood\ScribblesIcon-03.png">
+                <span class="download-button">Download</span>
+                </div>
+                <div id="soda" hidden>
+                    <img src="Images\Items\FastFood\ScribblesIcon-04.png">
+                    <span class="download-button">Download</span>
+                </div>
+                <div id="popcorn" hidden>
+                    <img src="Images\Items\FastFood\ScribblesIcon-05.png">
+                    <span class="download-button">Download</span>
+                </div>
+                <div id="icecream" hidden>
+                    <img src="Images\Items\FastFood\ScribblesIcon-06.png">
+                    <span class="download-button">Download</span>
+                </div>
+                <div id="hotdog" hidden>
+                    <img src="Images\Items\FastFood\ScribblesIcon-07.png">
+                    <span class="download-button">Download</span>
+                </div>
+                <div id="tacos" hidden>
+                    <img src="Images\Items\FastFood\ScribblesIcon-08.png">
+                    <span class="download-button">Download</span>
+                </div>
+                <div id="chocolate" hidden>
+                    <img src="Images\Items\FastFood\ScribblesIcon-09.png">
+                    <span class="download-button">Download</span>
+                </div>
+                <div id="candy" hidden>
+                    <img src="Images\Items\FastFood\ScribblesIcon-10.png">
+                    <span class="download-button">Download</span>
+                    </div>
+                    <div id="cake" hidden>
+                        <img src="Images\Items\FastFood\ScribblesIcon-11.png">
+                    <span class="download-button">Download</span>
+                    </div>
+                    <div id="chicken" hidden>
+                        <img src="Images\Items\FastFood\ScribblesIcon-12.png">
+                    <span class="download-button">Download</span>
+                    </div>
+                    <div id="doughnut" hidden>
+                        <img src="Images\Items\FastFood\ScribblesIcon-13.png">
+                    <span class="download-button">Download</span>
+                    </div>
+            </div>
+        </div>
+        <div class="StationaryObjectsContainer">
+            <sub-title>Stationary Objects<a href="Fonts/Scribbles-Regular.zip" download> Download all</a></sub-title>
+            <div class="button-container">
+                <div id="pencil" hidden>
+                    <img src="Images\Items\StationaryObjects\ScribblesIcon-14.png">
+                    <span class="download-button">Download</span>
+                </div>
+                <div id="pen" hidden>
+                    <img src="Images\Items\StationaryObjects\ScribblesIcon-15.png">
+                    <span class="download-button">Download</span>
+                </div>
+                <div id="marker" hidden>
+                    <img src="Images\Items\StationaryObjects\ScribblesIcon-16.png">
+                    <span class="download-button">Download</span>
+                </div>
+                <div id="eraser" hidden>
+                    <img src="Images\Items\StationaryObjects\ScribblesIcon-17.png">
+                    <span class="download-button">Download</span>
+                </div>
+                <div id="clipboard" hidden>
+                    <img src="Images\Items\StationaryObjects\ScribblesIcon-18.png">
+                    <span class="download-button">Download</span>
+                </div>
+                <div id="clip" hidden>
+                    <img src="Images\Items\StationaryObjects\ScribblesIcon-19.png">
+                    <span class="download-button">Download</span>
+                </div>
+                <div id="notebook" hidden>
+                    <img src="Images\Items\StationaryObjects\ScribblesIcon-20.png">
+                    <span class="download-button">Download</span>
+                </div>
+                <div id="pin" hidden>
+                    <img src="Images\Items\StationaryObjects\ScribblesIcon-21.png">
+                    <span class="download-button">Download</span>
+                </div>
+                <div id="scissors" hidden>
+                    <img src="Images\Items\StationaryObjects\ScribblesIcon-22.png">
+                    <span class="download-button">Download</span>
+                </div>
+                <div id="rule" hidden>
+                    <img src="Images\Items\StationaryObjects\ScribblesIcon-23.png">
+                    <span class="download-button">Download</span>
+                </div>
+                <div id="magnifier" hidden>
+                    <img src="Images\Items\StationaryObjects\ScribblesIcon-24.png">
+                    <span class="download-button">Download</span>
+                </div>
+                <div id="glue" hidden>
+                    <img src="Images\Items\StationaryObjects\ScribblesIcon-25.png">
+                    <span class="download-button">Download</span>
+                </div>
+                <div id="calculator" hidden>
+                    <img src="Images\Items\StationaryObjects\ScribblesIcon-26.png">
+                    <span class="download-button">Download</span>
+                </div>
+                <div id="ballpaperscrap" hidden>
+                    <img src="Images\Items\StationaryObjects\ScribblesIcon-27.png">
+                    <span class="download-button">Download</span>
+                </div>
+                <div id="glasses" hidden>
+                    <img src="Images\Items\StationaryObjects\ScribblesIcon-28.png">
+                    <span class="download-button">Download</span>
+                </div>
+            </div>
+        </div>
+    </div>
+        <script>
+            function search() {
+                // Get the search query from the input field
+                var query = document.getElementById("searchBar").value.toLowerCase();
+
+                // Loop through all the items to show or hide them based on the query
+                var items = document.querySelectorAll(".button-container > div");
+                for (var i = 0; i < items.length; i++) {
+                        var itemId = items[i].getAttribute("id").toLowerCase();
+                    if (itemId.indexOf(query) !== -1) {
+                        items[i].style.display = "block";
+                    } else {
+                        items[i].style.display = "none";
+                    }
+                }
+            }
+    
+            document.getElementById("searchBar").addEventListener("input", search);
+
+            function ListenUser() {
+                // Get the search query from the input field
+                var query = document.getElementById("searchBar2").value.toLowerCase();
+                query = query.replaceAll( " ", "");
+
+                // Loop through all the items to show or hide them based on the query
+                var items = document.querySelectorAll(".button-container > div");
+                
+                //var itemId = items[i].getAttribute("id").toLowerCase();
+                const img = document.querySelector(`#${query} img`)
+                if (img) {
+                        document.getElementById("img-displayed").style.removeProperty("display");
+                        document.getElementById("img-displayed").src = img.src
+                    } else {
+                        document.getElementById("img-displayed").style.display = "none";
+                    }
+            }
+            document.getElementById("searchBar2").addEventListener("input", ListenUser);
+
+            function GenerateScribbles(){
+                if(document.getElementById("AllItems").style.display == "none")
+                {
+                    document.getElementById("AllItems").style.removeProperty("display");
+                    document.getElementById("searchBarContainer").style.removeProperty("display");
+                    document.getElementById("searchBarContainer2").style.display = "none"
+                    document.getElementById("AnimScrCont").style.display = "none"
+                    document.getElementById("img-displayed").style.display = "none"
+                    document.getElementById("searchBar2").value = ""
+                    document.getElementById("ChangeSite").textContent = "Bring your stories to live";
+                }else
+                {
+                    document.getElementById("AnimScrCont").style.removeProperty("display");
+                    document.getElementById("AllItems").style.display = "none"
+                    document.getElementById("searchBarContainer").style.display = "none"
+                    document.getElementById("ChangeSite").textContent = "Items Library";
+                    document.getElementById("searchBarContainer2").style.removeProperty("display");
+                }
+                
+            }
+
+            document.getElementById("ChangeSite").addEventListener("click", GenerateScribbles);
+        </script>
+            
+        <script type="module">
+            const recognition = new window.webkitSpeechRecognition();
+            recognition.lang = 'en-US';
+            recognition.continuous = true;
+            recognition.interimResults = true;
+
+            const startBtn = document.getElementById('start-btn');
+            const stopBtn = document.getElementById('stop-btn');
+            const resultDiv = document.getElementById('searchBar2');
+
+            startBtn.addEventListener('click', () => {
+            recognition.start();
+            startBtn.disabled = true;
+            stopBtn.disabled = false;
+            });
+
+            stopBtn.addEventListener('click', () => {
+            recognition.stop();
+            startBtn.disabled = false;
+            stopBtn.disabled = true;
+            });
+
+            recognition.onresult = event => {
+            const transcript = Array.from(event.results)
+                .map(result => result[0].transcript)
+                .join('');
+            resultDiv.value = transcript;
+            ListenUser();
+            };
+
+            recognition.onend = () => {
+            startBtn.disabled = false;
+            stopBtn.disabled = true;
+            };
+        </script>
+
+      <script src="Scribbles.js"></script>
+  </body>
+</html>

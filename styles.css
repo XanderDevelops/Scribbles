@@ -1,0 +1,215 @@
+/* Select the body element and apply a background color */
+body {
+    background-color: #ffffff;
+    justify-content: center;
+  }
+
+  html {
+    overflow-y: scroll;
+  } 
+
+  body::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    left:100px;
+  }
+   
+  body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.3);
+  }
+   
+  body::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgb(0, 0, 0);
+  }
+
+  /* Define a custom font */
+@font-face {
+  font-family: "Scribbles";
+  src: url("C:/Users/aleja/Desktop/PersonalProjects/Scribbles/Fonts/Scribbles-Regular.ttf");
+}
+
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    list-style: none;
+  }
+  
+  nav li {
+    padding-right: 50px;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: black;
+  } 
+
+  button {
+    display: flex;
+    flex-direction: row;
+    font-family: "Scribbles";
+    padding: 15px;
+    font-size: 40px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+    margin: auto;
+    background: transparent;
+    border: none;
+    list-style: none;
+  }
+
+  /* SearchBar*/
+
+  .search-container {
+    background-image: url("Images/Website Elements/SearchBar.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-size: 35px;
+    display: flex;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+  }
+  
+  .search-container input[type="text"] {
+    display: flex;
+    font-family: "Scribbles";
+    padding: 15px;
+    font-size: 35px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    text-align: center;
+  }
+  
+  /* EndSearchBar*/
+  
+
+  sub-title{
+    display: flex;
+    font-family: "Scribbles";
+    padding-left: 50px;
+    padding-top: 100px;
+    margin: 0;
+    font-size: 60px;
+    color: #000000;
+  }
+
+  .FastFoodContainer sub-title{
+    padding-top: 50px;
+  }
+
+  sub-title a{
+    text-decoration: none;
+    font-size: 45px;
+    cursor: pointer;
+    padding-right: 60px;
+    margin-left: auto;
+    color: #000000;
+  }
+
+
+  /* Use the custom font for a specific element */
+  h1 {
+    display: flex;
+    font-family: "Scribbles";
+    padding-left: 40px;
+    margin: 0;
+    font-size: 80px;
+    color: #000000;
+  }
+  
+  ul {
+    font-family: "Scribbles";
+    font-size: 51px;
+    color: #000000;
+  }
+
+  /* Select the p element and apply a font family, size, and line height */
+  p {
+    font-family: "Scribbles", Verdana, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  .button-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    width: 1380px;
+    margin: 0 auto;
+  }
+  
+  .button-container div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+  
+  .button-container img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+  }
+
+  .AnimationScreenContainer img{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    margin-top: 50px;
+  }
+  
+  .download-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Scribbles";
+    font-size: 35px;
+    color: #000000;
+    cursor: pointer;
+  }
+
+  .prompt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Scribbles";
+    font-size: 35px;
+    color: #000000;
+    cursor: pointer;
+  }
+  
+  
+  
+  
