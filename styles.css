@@ -102,7 +102,60 @@ body {
     border: none;
     text-align: center;
   }
-  
+
+  .search-container2
+  {
+    display: flex;
+    width: auto;
+    height: 560px;
+    margin-left: 100px;
+    justify-content: flex-start;
+    background-image: url("Images/Website Elements/TextBox.png");
+    background-color: transparent;
+    background-repeat: no-repeat;
+    outline: none;
+    border: none;
+    background-size: contain;
+  }
+
+  .search-container2 textarea {
+    display: flex;
+    font-family: "Scribbles";
+    align-self: flex-start;
+    justify-content: center;
+    margin-top: 30px;
+    margin-left: 40px;
+    font-size: 35px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    text-align: left;
+    resize: none;
+    height: 500px;
+    width: 300px;
+  }
+
+  .search-container2 textarea::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    left:100px;
+  }
+   
+  .search-container2 textarea::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.3);
+  }
+   
+  .search-container2 textarea::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgb(0, 0, 0);
+  }
+
+  .search-container2 .mic-button-container button
+  {
+    inline-size: 200px;
+    height: 50px;
+  }
+
   /*EndSearchBar*/
   
 
@@ -180,30 +233,44 @@ body {
     margin-bottom: 10px;
   }
 
-  .AnimationScreenContainer .imgGen {
+  /* .AnimationScreenContainer .img-container img{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
+    width: 650px;
+    height: 550px;
+    margin-bottom: 10px;
+  } */
+
+  .AnimationScreenContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+  }
+
+  .AnimationScreenContainer .imgGen {
+    display: flex;
+    flex-direction: row;
   }
 
   .AnimationScreenContainer .imgGen img {
-    width: 150px;
-    height: 150px;
-    background-image: url("Images/Website Elements/ScreenBox.png");
-    background-image: transparent;
-    margin: 10px; /* adjust this value to change the distance between images */
-    animation: rotateScribble 0.1s linear infinite alternate;
+    Display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    height: 180px;
+    /* animation: rotateScribble 0.1s linear infinite alternate; */
   }
   
-  @keyframes rotateScribble {
+  /* @keyframes rotateScribble {
     from {
       transform: rotate(5deg);
     }
     to {
       transform: rotate(-5deg);
     }
-  }
+  } */
 
   .download-button {
     display: flex;
