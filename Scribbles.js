@@ -53,44 +53,70 @@ image.addEventListener("mouseout", function() {
 
 //mouse over buttons - END
 
+// Type images you'd like to see
+
+var count;
+var allIds = [];
+var recognized = false;
+
 function ListenUser() {
   // Get the search query from the input field
-  var query = document.getElementById("searchBar2").value.toLowerCase().replaceAll(" ", "");
-  var query1;
-  var query2;
+  var allQuery = document.getElementById("searchBar2").value.toLowerCase().replaceAll(" ", "");
+  var query = allQuery.substring(count, allQuery.length);;
+  var queryIds = [null, null]; // array to store the ids that match the query
+  // Create an empty array to store all the matching ids
 
-  // Loop through all the items to show or hide them based on the query
-  var items = document.querySelectorAll(".button-container > div");
-  items.forEach(e => {
-      if (query.includes(e.id)) {
-          query2 = query1; // update query2 with the previous value of query1
-          query1 = e.id; // update query1 with the current id
-      }
-  });
-
-  if (!query1) {
-      return;
+// Loop through all the items and add their ids to the allIds array
+var items = document.querySelectorAll(".button-container > div");
+items.forEach(e => {
+  if (query.includes(e.id) ) {
+    allIds.push(e.id);
+    recognized = true;
+    count = allQuery.length;
   }
+});
 
-  const img = document.querySelector(`#${query1} img`)
-  const img2 = document.querySelector(`#${query2} img`)
+if(count >= allQuery.length)
+{
+    count = allQuery.length;
+}
 
-  if (img) {
-      document.getElementById("img-displayed").style.removeProperty("display");
-      document.getElementById("img-displayed").src = img.getAttribute("var");
+console.log(allIds);
+console.log(query);
+
+items.forEach(e => {
+  if (query.includes(e.id)) {
+    if (queryIds[0] === null) {
+      queryIds[0] = allIds[allIds.length - 1];
+      queryIds[1] = allIds[allIds.length - 2];
+    }
+  }
+});
+
+if(recognized){
+  // Display the images based on the matching ids
+  if (allIds.length > 0) {
+    const img = document.querySelector(`#${queryIds[0]} img`)
+    document.getElementById("img-displayed").style.removeProperty("display");
+    document.getElementById("img-displayed").src = img.getAttribute("var");
+    recognized = false;
   } else {
-      document.getElementById("img-displayed").style.display = "none";
+    document.getElementById("img-displayed").style.display = "none";
   }
 
-  if (img2) {
-      document.getElementById("img-displayed2").style.removeProperty("display");
-      document.getElementById("img-displayed2").src = img2.getAttribute("var");
+  if (allIds.length > 1) {
+    const img2 = document.querySelector(`#${queryIds[1]} img`)
+    document.getElementById("img-displayed2").style.removeProperty("display");
+    document.getElementById("img-displayed2").src = img2.getAttribute("var");
   } else {
-      document.getElementById("img-displayed2").style.display = "none";
+    document.getElementById("img-displayed2").style.display = "none";
   }
+}
+
   }
 document.getElementById("searchBar2").addEventListener("input", ListenUser);
 
+//Button to change page
 
 function GenerateScribbles(){
   if(document.getElementById("AllItems").style.display == "none")
@@ -114,6 +140,8 @@ function GenerateScribbles(){
 }
 
 document.getElementById("ChangeSite").addEventListener("click", GenerateScribbles);
+
+//Audio Recognition
 
 const recognition = new window.webkitSpeechRecognition();
 recognition.lang = 'en-US';

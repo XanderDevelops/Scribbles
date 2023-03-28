@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Canvas Drawing Example</title>
+  <style>
+    canvas {
+      border: 2px solid black;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="myCanvas" width="400" height="400"></canvas>
+  <br />
+  <label for="size">Line size:</label>
+  <input type="range" id="size" name="size" min="5" max="20" value="10">
+  <br />
+  <button id="penButton">Pen</button>
+  <button id="eraserButton">Eraser</button>
+
+  <script>
+    // Get the canvas element and its 2D context
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+
+    // Enable anti-aliasing and set the line cap
+    ctx.imageSmoothingEnabled = true;
+    ctx.lineCap = "round";
+
+    // Set the starting position for drawing
+    var pos = { x: 0, y: 0 };
+
+    // Get the line size input element
+    var sizeInput = document.getElementById("size");
+
+    // Get the pen and eraser buttons
+    var penButton = document.getElementById("penButton");
+    var eraserButton = document.getElementById("eraserButton");
+
+    // Set up the mouse event handlers
+    canvas.addEventListener("mousedown", function(event) {
+      pos = getMousePos(canvas, event);
+      canvas.addEventListener("mousemove", draw);
+    });
+
+    canvas.addEventListener("mouseup", function() {
+      canvas.removeEventListener("mousemove", draw);
+    });
+
+    // Set up the touch event handlers
+    canvas.addEventListener("touchstart", function(event) {
+      event.preventDefault();
+      pos = getTouchPos(canvas, event);
+      canvas.addEventListener("touchmove", draw);
+    });
+
+    canvas.addEventListener("touchend", function(event) {
+      event.preventDefault();
+      canvas.removeEventListener("touchmove", draw);
+    });
+
+    // Set up the undo button
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "z" && (event.ctrlKey || event.metaKey)) {
+        undo();
+      }
+    });
+
+    // Set up the pen and eraser buttons
+    penButton.addEventListener("click", function() {
+      ctx.globalCompositeOperation = "source-over";
+    });
+
+    eraserButton.addEventListener("click", function() {
+      ctx.globalCompositeOperation = "destination-out";
+    });
+
+    // Draw a line to the current mouse/touch position
+    function draw(event) {
+      event.preventDefault();
+
+      // Determine the current position of the input
+      var newPos;
+      if (event.type === "mousemove") {
+        newPos = getMousePos(canvas, event);
+      } else if (event.type === "touchmove") {
+        newPos = getTouchPos(canvas, event);
+      }
+
+      // Calculate the distance between the current and previous positions
+      var dist = Math.sqrt(Math.pow(newPos.x - pos.x, 2) + Math.pow(newPos.y - pos.y, 2));
+
+      // Get the line size from the input element
+      var size = sizeInput.value;
+
+      // Calculate the stroke width based on the distance and the line size
+      var strokeWidth = size * Math.max(1 - (dist / 10), 0.1);
+
+      // Draw a line to the current position with the calculated stroke width
+      ctx.beginPath();
+      ctx.moveTo(pos.x, pos.y);
+      ctx.lineTo(newPos.x, newPos.y);
+      ctx.lineWidth = strokeWidth;
+      ctx.stroke();
+
+  // Update the current position
+  pos = newPos;
+}
+
+// Undo the last line drawn
+function undo() {
+  // Get the current image data
+  var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+  // Save the current image data to the history stack
+  history.push(imageData);
+
+  // Restore the previous image data from the history stack
+  if (history.length > 1) {
+    history.pop();
+    ctx.putImageData(history[history.length - 1], 0, 0);
+  }
+}
+
+// Get the position of a mouse event relative to the canvas
+function getMousePos(canvas, event) {
+  var rect = canvas.getBoundingClientRect();
+  return {
+    x: event.clientX - rect.left,
+    y: event.clientY - rect.top
+  };
+}
+
+// Get the position of a touch event relative to the canvas
+function getTouchPos(canvas, event) {
+  var rect = canvas.getBoundingClientRect();
+  return {
+    x: event.touches[0].clientX - rect.left,
+    y: event.touches[0].clientY - rect.top
+  };
+}
+
+// Set up the history stack
+var history = [];
+history.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
+  </script>
+</body>
+</html>
