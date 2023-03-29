@@ -217,8 +217,8 @@ body {
   
   .AllItems
   {
-    width: auto;
-    margin: 0 auto;
+    /* width: auto;
+    margin: 0 auto; */
   }
 
   .button-container div {
