@@ -293,8 +293,8 @@ body {
     cursor: pointer;
   }
   
-  @media screen and (max-width: 414px) {
+  @media (min-width: 414px) {
     .button-container {
-      padding-left: 30px;
+      padding-left: 50px;
      }
     }
