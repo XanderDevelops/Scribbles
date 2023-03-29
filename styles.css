@@ -214,12 +214,6 @@ body {
     align-items: center;    
     padding-left: 70px;
   }
-  
-  .AllItems
-  {
-    /* width: auto;
-    margin: 0 auto; */
-  }
 
   .button-container div {
     display: flex;
