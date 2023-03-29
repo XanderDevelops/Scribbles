@@ -76,7 +76,7 @@ items.forEach(e => {
   }
 });
 
-if(count >= allQuery.length)
+if(count > allQuery.length)
 {
     count = allQuery.length;
 }

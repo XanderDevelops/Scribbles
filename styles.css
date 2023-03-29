@@ -211,11 +211,16 @@ body {
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: start;
-    align-items: center;
-    width: 1380px;
-    margin: 0 auto;
+    align-items: center;    
+    padding-left: 70px;
   }
   
+  .AllItems
+  {
+    width: auto;
+    margin: 0 auto;
+  }
+
   .button-container div {
     display: flex;
     flex-direction: column;
@@ -227,10 +232,12 @@ body {
   .button-container img {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
     width: 150px;
     height: 150px;
     margin-bottom: 10px;
+
   }
 
   /* .AnimationScreenContainer .img-container img{
@@ -291,3 +298,9 @@ body {
     color: #000000;
     cursor: pointer;
   }
+  
+  @media screen and (max-width: 414px) {
+    .button-container {
+      padding-left: 30px;
+     }
+    }
