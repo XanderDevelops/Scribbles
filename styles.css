@@ -37,8 +37,8 @@ body {
   }
 
   header {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: auto 20% 60%;
     align-items: center;
   }
   
@@ -298,3 +298,73 @@ body {
       padding-left: 50px;
      }
     }
+
+
+  /* Toggle button */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 39px;
+  height: 22px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 4px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+  background-image: url('Images/Website Elements/ToggleSlider.png'); /* Add image for slider here */
+  background-size: cover;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  background-image: url('Images/Website Elements/ToggleHandle.png'); /* Add image for handle here */
+  background-size: cover;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: transparent;
+  background-image: url('Images/Website Elements/ToggleSliderFilled.png'); /* Add image for active state of slider here */
+  background-size: cover;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(23px);
+  -ms-transform: translateX(23px);
+  transform: translateX(23px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 17px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+#togglediv{
+  height: 30px
+}

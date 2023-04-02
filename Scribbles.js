@@ -62,7 +62,7 @@ var recognized = false;
 function ListenUser() {
   // Get the search query from the input field
   var allQuery = document.getElementById("searchBar2").value.toLowerCase().replaceAll(" ", "");
-  var query = allQuery.substring(count, allQuery.length);;
+  var query = allQuery.substring(count, allQuery.length);
   var queryIds = [null, null]; // array to store the ids that match the query
   // Create an empty array to store all the matching ids
 
@@ -118,24 +118,38 @@ document.getElementById("searchBar2").addEventListener("input", ListenUser);
 
 //Button to change page
 
+var toggle = false;
+var tog = 0;
+
 function GenerateScribbles(){
-  if(document.getElementById("AllItems").style.display == "none")
+  
+  if(!toggle && tog === 1)
   {
+      toggle = !toggle;
+      document.getElementById("AnimScrCont").style.removeProperty("display");
+      document.getElementById("AllItems").style.display = "none"
+      document.getElementById("searchBarContainer").style.display = "none"
+      //document.getElementById("ChangeSite").textContent = "Items Library";
+      document.getElementById("searchBarContainer2").style.removeProperty("display");      
+      document.getElementById("searchBar2").value = ""
+      allIds = [];
+      ListenUser();          
+  }
+  else if(tog == 3)
+  {
+      toggle = !toggle;
       document.getElementById("AllItems").style.removeProperty("display");
       document.getElementById("searchBarContainer").style.removeProperty("display");
       document.getElementById("searchBarContainer2").style.display = "none"
       document.getElementById("AnimScrCont").style.display = "none"
       document.getElementById("img-displayed").style.display = "none"
-      document.getElementById("searchBar2").value = ""
-      document.getElementById("ChangeSite").textContent = "Bring your stories to life";
-  }else
-  {
-      document.getElementById("AnimScrCont").style.removeProperty("display");
-      document.getElementById("AllItems").style.display = "none"
-      document.getElementById("searchBarContainer").style.display = "none"
-      document.getElementById("ChangeSite").textContent = "Items Library";
-      document.getElementById("searchBarContainer2").style.removeProperty("display");
+      // document.getElementById("ChangeSite").textContent = "Bring your stories to life";
+      tog = -1;
   }
+  tog++; 
+
+ // tog = 0; 
+  console.log(toggle);
   
 }
 

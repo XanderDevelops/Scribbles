@@ -10,14 +10,21 @@
 
     <header>
         <h1>Scribbles</h1>
-        <button id="ChangeSite" type="button">Bring your stories to life</button>
+        <!-- <button id="ChangeSite" type="button">Bring your stories to life</button> -->
+        <div id="togglediv">
+            <label id="ChangeSite" class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+                <embed style="display: none;"src="Images\toggle-bttn.wav" />
+              </label>
+        </div>
         <nav>
           <ul>
             <li><a href="Fonts/Scribbles-Regular.zip" download>Download original font</a></li>
           </ul>
         </nav>
       </header>
-    
+
     <!-- Search bar -->
     <div class="search-container" id="searchBarContainer">
         <input type="text" id="searchBar" placeholder="Search...">
